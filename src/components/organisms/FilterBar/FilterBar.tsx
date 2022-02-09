@@ -11,23 +11,31 @@ const FilterBar = ({
   checkedMaterial,
   setCheckMethod,
   setCheckedMaterial,
-}: FilterDropProps): ReactElement => (
-  <S.FilterBarWrap>
-    {FILTER_CATEGORY &&
-      FILTER_CATEGORY.map(
-        (category: string): ReactElement => (
-          <FilterDropDown
-            key={category}
-            category={category}
-            checkedMethod={checkedMethod}
-            checkedMaterial={checkedMaterial}
-            setCheckMethod={setCheckMethod}
-            setCheckedMaterial={setCheckedMaterial}
-          />
-        ),
+}: FilterDropProps): ReactElement => {
+  const handleResetFilter = () => {
+    setCheckMethod([]);
+    setCheckedMaterial([]);
+  };
+  return (
+    <S.FilterBarWrap>
+      {FILTER_CATEGORY &&
+        FILTER_CATEGORY.map(
+          (category: string): ReactElement => (
+            <FilterDropDown
+              key={category}
+              category={category}
+              checkedMethod={checkedMethod}
+              checkedMaterial={checkedMaterial}
+              setCheckMethod={setCheckMethod}
+              setCheckedMaterial={setCheckedMaterial}
+            />
+          ),
+        )}
+      {(checkedMaterial.length > 0 || checkedMethod.length > 0) && (
+        <ResetBtn onClick={handleResetFilter} />
       )}
-    {FILTER_CATEGORY && <ResetBtn />}
-  </S.FilterBarWrap>
-);
+    </S.FilterBarWrap>
+  );
+};
 
 export default FilterBar;

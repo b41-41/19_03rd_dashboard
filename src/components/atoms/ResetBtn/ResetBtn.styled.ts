@@ -10,12 +10,9 @@ export const ResetWrapper = styled.button`
 `;
 
 export const ResetTitle = styled.div`
-  margin: auto;
+  margin: 1px 12px;
   white-space: nowrap;
   font-weight: ${({ theme }) => theme.fontWeight.normal};
   font-size: ${({ theme }) => theme.fontSize.xs};
   color: ${({ theme }) => theme.color.primaryBlue};
-  ${props => props.theme.breakpoints.tablet} {
-    margin: 1px 12px;
-  }
 `;

@@ -18,5 +18,6 @@ export const Button = styled.button`
     props.primary ? ({ theme }) => theme.color.white : ({ theme }) => theme.color.primaryBlue};
   font-size: ${({ theme }) => theme.fontSize.s};
   font-weight: ${({ theme }) => theme.fontWeight.semiStrong};
+  line-height: normal;
   cursor: pointer;
 `;

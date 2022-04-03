@@ -7,6 +7,15 @@ export const GlobalStyledComponent = createGlobalStyle`
     font-family: 'Noto Sans KR', sans-serif;
     box-sizing: border-box;
   }
+
+  button {
+    border: none;
+    background-color: inherit;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+    line-height: unset;
+  }
 `;
 
 export const a11yHidden = css`

@@ -13,39 +13,36 @@ import {
 import CardProps from './Card.type';
 import * as S from './Card.styled';
 
-const Card = ({ request }: CardProps): ReactElement => (
-  <S.CardWrapper>
-    <S.TitleWrapper>
-      <S.Title>{request.title}</S.Title>
-      {request.status === COUNSELING && <CounselingBtn>{COUNSELING}</CounselingBtn>}
-    </S.TitleWrapper>
-    <S.Client>{request.client}</S.Client>
-    <S.Due>
-      {request.due}
-      {CARD_UNTIL}
-    </S.Due>
-    <Divider margin="0 0 32px 0" />
+const Card = ({ request }: CardProps): ReactElement => {
+  const cardContents = (title: string, content: string) => (
     <S.ContentWrapper>
-      <S.ContentTitle>{CARD_COUNT}</S.ContentTitle>
-      <S.Contents>{request.count}개</S.Contents>
+      <S.ContentTitle>{title}</S.ContentTitle>
+      <S.Contents>{content}</S.Contents>
     </S.ContentWrapper>
-    <S.ContentWrapper>
-      <S.ContentTitle>{CARD_AMOUNT}</S.ContentTitle>
-      <S.Contents>{request.amount}개</S.Contents>
-    </S.ContentWrapper>
-    <S.ContentWrapper>
-      <S.ContentTitle>{CARD_METHOD}</S.ContentTitle>
-      <S.Contents>{request.method.join(', ')}</S.Contents>
-    </S.ContentWrapper>
-    <S.ContentWrapper>
-      <S.ContentTitle>{CARD_MATERIAL}</S.ContentTitle>
-      <S.Contents>{request.material.join(', ')}</S.Contents>
-    </S.ContentWrapper>
-    <S.ButtonWrapper>
-      <Button primary>{CARD_REQUEST_DETAILS}</Button>
-      <Button>{CARD_CHATTING}</Button>
-    </S.ButtonWrapper>
-  </S.CardWrapper>
-);
+  );
+
+  return (
+    <S.CardWrapper>
+      <S.TitleWrapper>
+        <S.Title>{request.title}</S.Title>
+        {request.status === COUNSELING && <CounselingBtn>{COUNSELING}</CounselingBtn>}
+      </S.TitleWrapper>
+      <S.Client>{request.client}</S.Client>
+      <S.Due>
+        {request.due}
+        {CARD_UNTIL}
+      </S.Due>
+      <Divider margin="0 0 32px 0" />
+      {cardContents(CARD_COUNT, `${request.count}개`)}
+      {cardContents(CARD_AMOUNT, `${request.amount}개`)}
+      {cardContents(CARD_METHOD, request.method.join(', '))}
+      {cardContents(CARD_MATERIAL, request.material.join(', '))}
+      <S.ButtonWrapper>
+        <Button primary>{CARD_REQUEST_DETAILS}</Button>
+        <Button>{CARD_CHATTING}</Button>
+      </S.ButtonWrapper>
+    </S.CardWrapper>
+  );
+};
 
 export default Card;

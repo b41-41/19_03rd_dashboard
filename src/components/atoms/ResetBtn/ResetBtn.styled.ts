@@ -1,12 +1,20 @@
 import styled from 'styled-components/macro';
 
-export const ResetWrapper = styled.div`
+export const ResetWrapper = styled.button`
   margin: auto 3px;
   display: flex;
   cursor: pointer;
   ${props => props.theme.breakpoints.tablet} {
     margin: auto 16px;
   }
+
+  //불필요한 요소 초기화
+  border: none;
+  background-color: inherit;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  line-height: unset; //
 `;
 
 export const ResetTitle = styled.div`

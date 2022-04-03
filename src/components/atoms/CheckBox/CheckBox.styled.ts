@@ -6,14 +6,11 @@ export const CheckBox = styled.input<Pick<CheckBoxProps, 'checked'>>`
   position: relative;
   width: 18px;
   height: 18px;
-  left: -2px;
   cursor: pointer;
 
   &:before {
     content: '';
     position: absolute;
-    top: -2px;
-    left: -2px;
     width: inherit;
     height: inherit;
     border: 2px solid
